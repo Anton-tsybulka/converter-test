@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
+
+import 'antd/dist/antd.css';
+import { Select } from 'antd';
 import './App.css';
 
-function App() {
+const { Option } = Select;
+
+const App = () => {
+
+  const handleChange = (value) => {
+    console.log(`selected ${value}`);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Currency Converter</h1>
+      <p>I have</p>
+      <Select defaultValue="lucy" style={{ width: 120 }} onChange={handleChange}>
+        <Option value="jack">Jack</Option>
+        <Option value="lucy">Lucy</Option>
+        <Option value="disabled" disabled>
+          Disabled
+      </Option>
+        <Option value="Yiminghe">yiminghe</Option>
+      </Select>
+
     </div>
   );
 }
