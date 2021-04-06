@@ -9,6 +9,12 @@ import {
     changeCurrency2,
     changeCurrencySuccess2,
     changeDefaultSuccess2,
+    changeValute1,
+    changeValute1Sucess,
+    changeValute1DefaultSuccess,
+    changeValute2,
+    changeValute2Sucess,
+    changeValute2DefaultSuccess,
     currencyFailed,
 } from '../actions/converterActions';
 
@@ -45,3 +51,18 @@ export const changeCurrencyThunk2 = (data) => {
     };
 };
 
+export const changeValute1Thunk = (data) => {
+    return (dispatch) => {
+        dispatch(changeValute1(data));
+        dispatch(changeValute1Sucess(data));
+        dispatch(changeValute1DefaultSuccess(data))
+    };
+};
+
+export const changeValute2Thunk = (data) => {
+    return (dispatch) => {
+        dispatch(changeValute2(data));
+        dispatch(changeValute2Sucess(data));
+        dispatch(changeValute2DefaultSuccess(data))
+    };
+};

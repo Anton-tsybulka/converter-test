@@ -1,4 +1,9 @@
-import { nominalShow, conversionCurrency } from '../../helpers/helpers'
+import {
+    nominalShow,
+    conversionCurrency,
+    conversionCurrencyValue
+} from '../../helpers/helpers';
+
 import {
     GET_CURRENCY_REQUESTED,
     GET_CURRENCY_SUCCESS,
@@ -8,6 +13,12 @@ import {
     CHANGE_CURRENCY2_REQUESTED,
     CHANGE_CURRENCY2_SUCCESS,
     CHANGE_DEFAULT2_SUCCESS,
+    CHANGE_VALUTE1_REQUESTED,
+    CHANGE_VALUTE1_SUCCESS,
+    CHANGE_VALUTE1DEFAULT_SUCCESS,
+    CHANGE_VALUTE2_REQUESTED,
+    CHANGE_VALUTE2_SUCCESS,
+    CHANGE_VALUTE2DEFAULT_SUCCESS,
     CURRENCY_FAILED,
 } from '../actions/actionTypes';
 
@@ -67,6 +78,40 @@ export default function converterReducer(state = initialState, action) {
                 loading: false,
                 value1: conversionCurrency(state.valute2, state.valute1, state.currency),
                 value2: nominalShow(state.valute2, state.currency),
+            };
+        case CHANGE_VALUTE1_REQUESTED:
+            return {
+                ...state,
+                loading: true
+            };
+        case CHANGE_VALUTE1_SUCCESS:
+            return {
+                ...state,
+                loading: true,
+                value1: action.payload,
+            };
+        case CHANGE_VALUTE1DEFAULT_SUCCESS:
+            return {
+                ...state,
+                loading: true,
+                value2: conversionCurrencyValue(state.value1, state.valute1, state.valute2, state.currency),
+            };
+        case CHANGE_VALUTE2_REQUESTED:
+            return {
+                ...state,
+                loading: true
+            };
+        case CHANGE_VALUTE2_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                value2: action.payload,
+            };
+        case CHANGE_VALUTE2DEFAULT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                value1: conversionCurrencyValue(state.value2, state.valute2, state.valute1, state.currency),
             };
         case CURRENCY_FAILED:
             return {
