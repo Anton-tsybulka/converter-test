@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Select, Input } from 'antd';
 import { nominalShow } from '../helpers/helpers';
 
 const { Option } = Select;
 
-const CurrencyIHaveSelect = ({ currency }) => {
-    const [cash, setCash] = useState(1)
+const CurrencyIHaveSelect = ({ currency, nominal1, setNominal1 }) => {
     const defaultValue = currency && currency.length !== 0 && currency[10].CharCode;
 
     const handleChange = (value) => {
-        setCash(nominalShow(value, currency));
+        setNominal1(nominalShow(value, currency));
     };
 
     return (
@@ -26,7 +25,7 @@ const CurrencyIHaveSelect = ({ currency }) => {
                     })}
                 </Select>}
             <Input
-                placeholder={cash}
+                placeholder={nominal1}
                 style={{ width: 120, borderStyle: 'none', borderBottom: '1px solid rgb(217, 217, 217)' }} />
         </div>
     )
