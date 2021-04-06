@@ -24,7 +24,8 @@ const CurrencyIHaveSelect = ({ currency, value1 }) => {
                 </Select>}
             <Input
                 placeholder='0'
-                onChange={(value) => dispatch(changeValute1Thunk(value.target.value))}
+                onChange={(value) => isFinite(value.target.value) ? dispatch(changeValute1Thunk(value.target.value)) : null
+                }
                 value={value1}
                 style={{ width: 120, borderStyle: 'none', borderBottom: '1px solid rgb(217, 217, 217)' }} />
         </div>

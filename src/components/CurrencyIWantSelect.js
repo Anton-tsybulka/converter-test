@@ -24,7 +24,8 @@ const CurrencyIWantSelect = ({ currency, value2 }) => {
                 </Select>}
             <Input
                 placeholder='0'
-                onChange={(value) => dispatch(changeValute2Thunk(value.target.value))}
+                onChange={(value) => isFinite(value.target.value) ? dispatch(changeValute2Thunk(value.target.value)) : null
+                }
                 value={value2}
                 style={{ width: 120, borderStyle: 'none', borderBottom: '1px solid rgb(217, 217, 217)' }} />
         </div>
