@@ -1,4 +1,4 @@
-
+import { nominalShow, conversionCurrency } from '../../helpers/helpers'
 import {
     GET_CURRENCY_REQUESTED,
     GET_CURRENCY_SUCCESS,
@@ -8,6 +8,8 @@ import {
 const initialState = {
     loading: true,
     currency: [],
+    value1: 1,
+    value2: 1,
     error: null
 };
 
@@ -20,7 +22,9 @@ export default function converterReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                currency: [...state.currency, ...Object.values(action.payload)]
+                currency: [...state.currency, ...action.payload],
+                value1: nominalShow('USD', action.payload),
+                value2: conversionCurrency('USD', 'BYN', action.payload),
             };
         case CURRENCY_FAILED:
             return {
