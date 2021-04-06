@@ -19,15 +19,15 @@ const App = () => {
 
   return (
     <div>
-      <h1 style={{ textAlign: 'center' }}>Currency Converter</h1>
+      <h1 style={{ textAlign: 'center', margin: '5% 0' }}>Currency Converter</h1>
       <Row justify='center'>
-        <Col>
+        <Col style={{ marginRight: '4em' }}>
           <p style={{ fontSize: '70%' }}>I have</p>
           <CurrencyIHaveSelect
             currency={currency}
             value1={value1} />
         </Col>
-        <Col>
+        <Col style={{ marginRight: '4em' }}>
           <p style={{ fontSize: '70%' }}>I want to buy</p>
           <CurrencyIWantSelect
             currency={currency}
