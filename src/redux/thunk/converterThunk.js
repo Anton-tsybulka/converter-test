@@ -3,6 +3,12 @@ import axios from 'axios';
 import {
     getCurrency,
     getCurrencySuccess,
+    changeCurrency1,
+    changeCurrencySuccess1,
+    changeDefaultSuccess1,
+    changeCurrency2,
+    changeCurrencySuccess2,
+    changeDefaultSuccess2,
     currencyFailed,
 } from '../actions/converterActions';
 
@@ -23,5 +29,19 @@ export const getCurrencyThunk = (data) => {
     };
 };
 
+export const changeCurrencyThunk1 = (data) => {
+    return (dispatch) => {
+        dispatch(changeCurrency1(data));
+        dispatch(changeCurrencySuccess1(data));
+        dispatch(changeDefaultSuccess1(data));
+    };
+};
 
+export const changeCurrencyThunk2 = (data) => {
+    return (dispatch) => {
+        dispatch(changeCurrency2(data));
+        dispatch(changeCurrencySuccess2(data));
+        dispatch(changeDefaultSuccess2(data));
+    };
+};
 

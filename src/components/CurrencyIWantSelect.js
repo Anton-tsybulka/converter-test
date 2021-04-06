@@ -1,15 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import { Select, Input } from 'antd';
+import { changeCurrencyThunk2 } from '../redux/thunk/converterThunk';
 
 const { Option } = Select;
 
 const CurrencyIWantSelect = ({ currency, value2 }) => {
     const defaultValue = currency && currency.length !== 0 && currency[4].CharCode;
-
-    const handleChange = (value) => {
-        /* setNominal2(nominalShow(value, currency)); */
-    };
+    const dispatch = useDispatch();
 
     return (
         <div>
@@ -18,7 +17,7 @@ const CurrencyIWantSelect = ({ currency, value2 }) => {
                 <Select
                     defaultValue={defaultValue}
                     style={{ width: 120 }}
-                    onChange={handleChange}>
+                    onChange={(value) => dispatch(changeCurrencyThunk2(value))}>
                     {currency && currency.map(({ ID, CharCode }) => {
                         return <Option key={ID} value={CharCode}>{CharCode}</Option>
                     })}
