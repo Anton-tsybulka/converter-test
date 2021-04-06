@@ -8,13 +8,13 @@ import {
 
 const apiUrl = 'https://www.cbr-xml-daily.ru/daily_json.js';
 
-export const getWorkersThunk = (data) => {
+export const getCurrencyThunk = (data) => {
     return (dispatch) => {
         dispatch(getCurrency(data));
         axios
             .get(apiUrl)
             .then((responce) => {
-                dispatch(getCurrencySuccess(responce))
+                dispatch(getCurrencySuccess(responce.data.Valute))
             })
             .catch((error) => {
                 dispatch(currencyFailed(error))
