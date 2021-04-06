@@ -7,6 +7,7 @@ import CurrencyIHaveSelect from './components/CurrencyIHaveSelect';
 import CurrencyIWantSelect from './components/CurrencyIWantSelect';
 
 import './App.css';
+import { Col, Row } from 'antd';
 
 const App = () => {
   const { currency, value1, value2 } = useSelector((state) => state.converter);
@@ -18,15 +19,21 @@ const App = () => {
 
   return (
     <div>
-      <h1>Currency Converter</h1>
-      <p>I have</p>
-      <CurrencyIHaveSelect
-        currency={currency}
-        value1={value1} />
-      <p>I want to buy</p>
-      <CurrencyIWantSelect
-        currency={currency}
-        value2={value2} />
+      <h1 style={{ textAlign: 'center' }}>Currency Converter</h1>
+      <Row justify='center'>
+        <Col>
+          <p style={{ fontSize: '70%' }}>I have</p>
+          <CurrencyIHaveSelect
+            currency={currency}
+            value1={value1} />
+        </Col>
+        <Col>
+          <p style={{ fontSize: '70%' }}>I want to buy</p>
+          <CurrencyIWantSelect
+            currency={currency}
+            value2={value2} />
+        </Col>
+      </Row>
     </div>
   );
 }
