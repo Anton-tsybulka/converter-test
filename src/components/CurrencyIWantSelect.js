@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 
-import { Select } from 'antd';
+import { Select, Input } from 'antd';
+import { nominalShow } from '../helpers/helpers';
 
 const { Option } = Select;
 
 const CurrencyIWantSelect = ({ currency }) => {
     const [cash, setCash] = useState(0)
-    const defaultValue = currency && currency.length !== 0 && currency[10][0];
+    const defaultValue = currency && currency.length !== 0 && currency[4].CharCode;
 
     const handleChange = (value) => {
-        setCash(value);
+        setCash(nominalShow(value, currency));
     };
 
     return (
@@ -20,11 +21,13 @@ const CurrencyIWantSelect = ({ currency }) => {
                     defaultValue={defaultValue}
                     style={{ width: 120 }}
                     onChange={handleChange}>
-                    {currency && currency.map(item => {
-                        return <Option key={item[0]} value={item[0]}>{item[0]}</Option>
+                    {currency && currency.map(({ ID, CharCode }) => {
+                        return <Option key={ID} value={CharCode}>{CharCode}</Option>
                     })}
                 </Select>}
-            <p>{cash}</p>
+            <Input
+                placeholder={cash}
+                style={{ width: 120, borderStyle: 'none', borderBottom: '1px solid rgb(217, 217, 217)' }} />
         </div>
     )
 };

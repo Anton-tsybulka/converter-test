@@ -20,7 +20,7 @@ export default function converterReducer(state = initialState, action) {
             return {
                 ...state,
                 loading: false,
-                currency: [...state.currency, ...Object.entries(action.payload)]
+                currency: [...state.currency, ...Object.values(action.payload)]
             };
         case CURRENCY_FAILED:
             return {
