@@ -9,7 +9,6 @@ const { Option } = Select;
 const CurrencyIWantSelect = ({ currency, value2 }) => {
     const defaultValue = currency && currency.length !== 0 && currency[4].CharCode;
     const dispatch = useDispatch();
-    console.log(value2);
 
     return (
         <div>

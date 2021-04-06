@@ -11,7 +11,6 @@ import './App.css';
 const App = () => {
   const { currency, value1, value2 } = useSelector((state) => state.converter);
   const dispatch = useDispatch();
-  console.log(currency);
 
   useEffect(() => {
     dispatch(getCurrencyThunk());
