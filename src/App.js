@@ -14,8 +14,6 @@ const App = () => {
   const defaultValue1 = currency && currency.length !== 0 && currency[10].CharCode,
     defaultValue2 = currency && currency.length !== 0 && currency[4].CharCode;
   const dispatch = useDispatch();
-  console.log(currency);
-
   useEffect(() => {
     dispatch(getCurrencyThunk());
   }, [dispatch]);
