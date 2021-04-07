@@ -6,8 +6,7 @@ import { Select, Input } from 'antd';
 
 const { Option } = Select;
 
-const CurrencyIHaveSelect = ({ currency, value1 }) => {
-    const defaultValue = currency && currency.length !== 0 && currency[10].CharCode;
+const CurrencyIHaveSelect = ({ currency, value1, defaultValue1 }) => {
     const dispatch = useDispatch();
 
     return (
@@ -15,7 +14,7 @@ const CurrencyIHaveSelect = ({ currency, value1 }) => {
             {currency &&
                 currency.length !== 0 &&
                 <Select
-                    defaultValue={defaultValue}
+                    defaultValue={defaultValue1}
                     style={{ width: 120 }}
                     onChange={(value) => dispatch(changeCurrencyThunk1(value))}>
                     {currency && currency.map(({ ID, CharCode }) => {

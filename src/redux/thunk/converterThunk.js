@@ -26,7 +26,11 @@ export const getCurrencyThunk = (data) => {
         axios
             .get(apiUrl)
             .then((responce) => {
-                const conversion = Object.values(responce.data.Valute);
+                const conversion = Object.values(responce.data.Valute)
+                    .map(item => ({
+                        ...item,
+                        defaultValue: item.Value / item.Nominal
+                    }));
                 dispatch(getCurrencySuccess(conversion))
             })
             .catch((error) => {

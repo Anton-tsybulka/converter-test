@@ -1,12 +1,12 @@
-import React from 'react';
+/* import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { changeCurrencyThunk1, changeValute1Thunk, changeCurrencyThunk2, changeValute2Thunk } from '../redux/thunk/converterThunk';
 import { Select, Input } from 'antd';
-import { changeCurrencyThunk2, changeValute2Thunk } from '../redux/thunk/converterThunk';
 
 const { Option } = Select;
 
-const CurrencyIWantSelect = ({ currency, value2, defaultValue2 }) => {
+const CurrencyIHaveSelect = ({ currency, value1, defaultValue1 }) => {
     const dispatch = useDispatch();
 
     return (
@@ -14,21 +14,21 @@ const CurrencyIWantSelect = ({ currency, value2, defaultValue2 }) => {
             {currency &&
                 currency.length !== 0 &&
                 <Select
-                    defaultValue={defaultValue2}
+                    defaultValue={defaultValue1}
                     style={{ width: 120 }}
-                    onChange={(value) => dispatch(changeCurrencyThunk2(value))}>
+                    onChange={(value) => dispatch(changeCurrencyThunk1(value))}>
                     {currency && currency.map(({ ID, CharCode }) => {
                         return <Option key={ID} value={CharCode}>{CharCode}</Option>
                     })}
                 </Select>}
             <Input
                 placeholder='0'
-                onChange={(value) => isFinite(value.target.value) ? dispatch(changeValute2Thunk(value.target.value)) : null
+                onChange={(value) => isFinite(value.target.value) ? dispatch(changeValute1Thunk(value.target.value)) : null
                 }
-                value={value2}
+                value={value1}
                 style={{ width: 120, borderStyle: 'none', borderBottom: '1px solid rgb(217, 217, 217)' }} />
         </div>
     )
 };
 
-export default CurrencyIWantSelect;
+export default CurrencyIHaveSelect; */

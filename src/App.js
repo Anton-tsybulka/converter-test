@@ -11,7 +11,10 @@ import { Col, Row } from 'antd';
 
 const App = () => {
   const { currency, value1, value2 } = useSelector((state) => state.converter);
+  const defaultValue1 = currency && currency.length !== 0 && currency[10].CharCode,
+    defaultValue2 = currency && currency.length !== 0 && currency[4].CharCode;
   const dispatch = useDispatch();
+  console.log(currency);
 
   useEffect(() => {
     dispatch(getCurrencyThunk());
@@ -21,15 +24,17 @@ const App = () => {
     <div>
       <h1 style={{ textAlign: 'center', margin: '5% 0' }}>Currency Converter</h1>
       <Row justify='center'>
-        <Col style={{ marginRight: '4em' }}>
+        <Col style={{ margin: '0 2em' }}>
           <p style={{ fontSize: '70%', marginBottom: '0' }}>I have</p>
           <CurrencyIHaveSelect
+            defaultValue1={defaultValue1}
             currency={currency}
             value1={value1} />
         </Col>
-        <Col style={{ marginRight: '4em' }}>
+        <Col style={{ margin: '0 2em' }}>
           <p style={{ fontSize: '70%', marginBottom: '0' }}>I want to buy</p>
           <CurrencyIWantSelect
+            defaultValue2={defaultValue2}
             currency={currency}
             value2={value2} />
         </Col>
