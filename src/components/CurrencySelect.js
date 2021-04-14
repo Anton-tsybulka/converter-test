@@ -4,7 +4,7 @@ import { Select, Input } from 'antd';
 
 const { Option } = Select;
 
-const CurrencySelect = ({ currency, value, valute, onChangeSelect, onChangeInput }) => {
+const CurrencySelect = ({ currency, value, valute, onChangeSelect, onChangeInput, focus }) => {
 
     return (
         <div>
@@ -21,6 +21,7 @@ const CurrencySelect = ({ currency, value, valute, onChangeSelect, onChangeInput
             <Input
                 placeholder='0'
                 onChange={(value) => onChangeInput(value)}
+                autoFocus={focus}
                 value={value}
                 style={{ width: 120, borderStyle: 'none', borderBottom: '1px solid rgb(217, 217, 217)' }} />
         </div>

@@ -11,7 +11,7 @@ import './App.css';
 import { Col, Row } from 'antd';
 
 const App = () => {
-  const { currency, value1, value2, valute1, valute2 } = useSelector((state) => state.converter);
+  const { currency, value1, value2, valute1, valute2, focus1, focus2 } = useSelector((state) => state.converter);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -39,7 +39,8 @@ const App = () => {
     value: value1,
     valute: valute1,
     onChangeSelect: onChangeSelect1,
-    onChangeInput: onChangeInput1
+    onChangeInput: onChangeInput1,
+    focus: focus1
   });
 
   const IWantSelect = currencyHOK(CurrencySelect, {
@@ -47,7 +48,8 @@ const App = () => {
     value: value2,
     valute: valute2,
     onChangeSelect: onChangeSelect2,
-    onChangeInput: onChangeInput2
+    onChangeInput: onChangeInput2,
+    focus: focus2
   });
 
   return (

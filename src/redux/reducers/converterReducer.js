@@ -29,6 +29,8 @@ const initialState = {
     valute2: 'BYN',
     value1: 1,
     value2: 1,
+    focus1: false,
+    focus2: false,
     error: null
 };
 
@@ -48,6 +50,8 @@ export default function converterReducer(state = initialState, action) {
         case CHANGE_CURRENCY1_REQUESTED:
             return {
                 ...state,
+                focus1: false,
+                focus2: false,
                 loading: true
             };
         case CHANGE_CURRENCY1_SUCCESS:
@@ -65,6 +69,8 @@ export default function converterReducer(state = initialState, action) {
         case CHANGE_CURRENCY2_REQUESTED:
             return {
                 ...state,
+                focus1: false,
+                focus2: false,
                 loading: true
             };
         case CHANGE_CURRENCY2_SUCCESS:
@@ -82,6 +88,8 @@ export default function converterReducer(state = initialState, action) {
         case CHANGE_VALUTE1_REQUESTED:
             return {
                 ...state,
+                focus1: true,
+                focus2: false,
                 loading: true
             };
         case CHANGE_VALUTE1_SUCCESS:
@@ -99,6 +107,8 @@ export default function converterReducer(state = initialState, action) {
         case CHANGE_VALUTE2_REQUESTED:
             return {
                 ...state,
+                focus1: false,
+                focus2: true,
                 loading: true
             };
         case CHANGE_VALUTE2_SUCCESS:
